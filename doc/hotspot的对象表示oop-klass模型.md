@@ -10,7 +10,7 @@ hotspot由C++实现，为什么Java的一个类不对应C++的一个类，Java�
 
 oop的职能是表示对象的实例数据，没必要每个对象都有vtable指针。Klass（用来描述Java类）的对象中有vtable的话，就可以根据Java对象的实际类型进行C++的分发，这样OOP对象就可以通过Klass找到所有的虚函数了。
 
-![1618843008885](/images/1618843008885.png)
+![1618843008885](https://github.com/memglongdeqiangse/concurrent-source/blob/main/doc/images/1618843008885.png)
 
 oop.hpp中的一段注释
 
@@ -181,7 +181,7 @@ typedef class     typeArrayOopDesc*            typeArrayOop;
 
 ```
 
-![1619101646024](.\images\1619101646024.png)
+![1619101646024](https://github.com/memglongdeqiangse/concurrent-source/blob/main/doc/images/1619101646024.png)
 
 ###  oopDesc 之 _metadata（元数据指针）
 
@@ -404,7 +404,7 @@ class Klass : public Metadata {
 
 JDK8之后，GC堆里的对象的对象头的_klass直接就是Klass*（或者压缩指针版），直接指向在Metaspace内的Klass（不再经过klassOopDesc这个包装层），然后Klass与Class仍然相互持有对方的指针。
 
-![1619103901859](.\images\1619103901859.png)
+![1619103901859](https://github.com/memglongdeqiangse/concurrent-source/blob/main/doc/images/1619103901859.png)
 
 虽然上面的图不是1.8的，但是思想是差不多的，_klass直接指向元空间的Klass。
 
